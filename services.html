@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        /* Общие стили */
+        :root {
+            --primary-bg: #f5f5f5; /* Светлый фон */
+            --secondary-bg: #e0d8d1; /* Бежевый */
+            --text-color: #333; /* Тёмный текст */
+            --highlight-color: #a6a6a6; /* Серый акцент */
+            --accent-color: #007bff; /* Акцентный синий */
+            --dark-bg: #2d2d2d; /* Тёмный фон */
+            --dark-text: #f5f5f5; /* Светлый текст для тёмной темы */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--secondary-bg);
+            padding: 20px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        .intro {
+            text-align: center;
+        }
+
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Тёмная тема */
+        body.dark {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        body.dark header {
+            background-color: var(--dark-bg);
+        }
+
+        body.dark nav a {
+            color: var(--dark-text);
+        }
+
+        body.dark nav a:hover {
+            color: var(--highlight-color);
+        }
+
+        body.dark .theme-toggle {
+            color: var(--dark-text);
+        }
+
+        /* Анимации */
+        nav a {
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Стиль для секций */
+        section {
+            padding: 50px 0;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--secondary-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .project-card p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        form input, form textarea, form button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: var(--accent-color);
+            color: white;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="portfolio.html">Портфолио</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h1>Наши услуги</h1>
+            <ul>
+                <li>Разработка веб-сайтов и приложений</li>
+                <li>Создание логотипов и брендинг</li>
+                <li>Оптимизация и SEO</li>
+                <li>Поддержка и обновления сайтов</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Все права защищены</p>
+    </footer>
+</body>
+</html>
